@@ -1,5 +1,5 @@
 {
-  "name": "webrtcvideobroadcast",
+  "name": "WEBRTC broadcasting",
   "version": "1.0.0",
   "description": "WebRTC example for a video broadcast",
   "main": "server.js",
@@ -10,8 +10,8 @@
     "WebRTC",
     "SocketIO"
   ],
-  "author": "Tanner Gabriel",
-  "license": "MIT",
+  "author": "Nikita",
+  "license": "VIP",
   "dependencies": {
     "express": "^4.17.1",
     "socket.io": "^4.1.3",
