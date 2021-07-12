@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 
 let broadcaster;
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 const http = require("http");
 const server = http.createServer(app);
