@@ -7,7 +7,7 @@ const config = {
   ]
 };
 const videoElement = document.querySelector("video");
-const socket = io.connect(https://mighty-brook-98105.herokuapp.com/);
+const socket = io.connect("https://mighty-brook-98105.herokuapp.com/");
  
 
 document.getElementById("start").onclick = function () {
