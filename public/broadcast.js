@@ -17,7 +17,6 @@ document.getElementById("start").onclick = function () {
   } else {
     user = {
       room: room_number,
-      name: inputName.value,
     };
     videoElement.style ="display:block;";
 
