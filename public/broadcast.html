@@ -5,17 +5,11 @@
     <meta charset="UTF-8" />
   </head>
   <body>
-    <section class="select">
-      <label for="audioSource">Audio source: </label>
-      <select id="audioSource"></select>
-    </section>
+   
+    <input type="text" placeholder="input room number" name="room" id="room"></input>
+    <button id="start">Input your room number and press the start button!</button>
 
-    <section class="select">
-      <label for="videoSource">Video source: </label>
-      <select id="videoSource"></select>
-    </section>
-
-    <video playsinline autoplay muted></video>
+    <video playsinline autoplay muted style="display: none;" id="broad"></video>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/broadcast.js"></script>
   </body>

@@ -6,8 +6,11 @@
     <link href="/styles.css" rel="stylesheet" />
   </head>
   <body>
-    <video playsinline autoplay muted></video>
-    <button id="enable-audio">Enable audio</button>
+    <video playsinline autoplay muted style="display: none;"></video>
+    <input type="text" placeholder="input room number" name="room" id="room"></input>
+    <button id="start">Input room number and press here!</button>
+    <br>
+    <p id="error"></p>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/watch.js"></script>
   </body>
