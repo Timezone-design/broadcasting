@@ -16,7 +16,7 @@ document.getElementById("start").onclick = function () {
     alert("Please type a room number!");
   } else {
     user = {
-      room: room_number,
+      room: room_number, 
     };
     videoElement.style ="display:block;";
 
