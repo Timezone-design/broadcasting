@@ -12,7 +12,7 @@ const config = {
   ]
 };
 
-const socket = io.connect("https://powerful-springs-74797.herokuapp.com/");
+const socket = io.connect("https://tranquil-refuge-66183.herokuapp.com/");
 const video = document.querySelector("video");
 
 document.getElementById("start").onclick = function () {
