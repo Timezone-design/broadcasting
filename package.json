@@ -1,5 +1,5 @@
 {
-  "name": "WEBRTC broadcasting",
+  "name": "webrtc-broadcasting",
   "version": "1.0.0",
   "description": "WebRTC example for a video broadcast",
   "main": "server.js",
