@@ -18,7 +18,7 @@ const video = document.querySelector("video");
 document.getElementById("start").onclick = function () {
   var room_number = document.getElementById("room").value;
   if (room_number === ""|| room_number == "") {
-    alert("Please type a room number!");
+    alert("Please type correct room number!");
   } else {
     user = {
       room: room_number,
