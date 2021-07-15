@@ -38,17 +38,18 @@ socket.on("offer", function (broadcaster, sdp) {
  rtcPeerConnections[broadcaster.id] = peerConnetion;
 
   rtcPeerConnections[broadcaster.id].setRemoteDescription(sdp);
-
+ 
+  console.log(sdp, "watcher");
+  
   rtcPeerConnections[broadcaster.id]
     .createAnswer()
     .then(function (sessionDescription) {
        
        // change the codec of sdp
-       sdp = sessionDescription.sdp;
+      //  sdp = sessionDescription.sdp;
       //  changeSdp = updateCodec(sdp);
       //  sessionDescription.sdp = changeSdp;
        
-       console.log(sdp, "watcher");
        console.log("---------------------------------");
        console.log(sessionDescription.sdp, "watcher");
        
