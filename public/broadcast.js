@@ -93,8 +93,8 @@ socket.on("candidate", function (id, event) {
 function updateCodec(sdp){
   originalcodec = "m=video 9 UDP/TLS/RTP/SAVPF 96 97 98 99 100 101 102 120 127 119 125 107 108 109 35 36 124 118 123";
   codechange = "m=video 9 UDP/TLS/RTP/SAVPF 102 96 97 98 99 100 101 120 127 119 125 107 108 109 35 36 124 118 123";
-  sdp.replace(originalcodec, codechange);
-  return sdp;
+  changed = sdp.replace(originalcodec, codechange);
+  return changed;
 }
 
 
