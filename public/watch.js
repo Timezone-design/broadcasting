@@ -49,6 +49,9 @@ socket.on("offer", function (broadcaster, sdp) {
       //  sessionDescription.sdp = changeSdp;
        
        console.log(sdp, "watcher");
+       console.log("---------------------------------");
+       console.log(sessionDescription.sdp, "watcher");
+       
        
       rtcPeerConnections[broadcaster.id].setLocalDescription(
         sessionDescription
