@@ -46,9 +46,9 @@ socket.on("offer", function (broadcaster, sdp) {
     .then(function (sessionDescription) {
        
        // change the codec of sdp
-      //  sdp = sessionDescription.sdp;
-      //  changeSdp = updateCodec(sdp);
-      //  sessionDescription.sdp = changeSdp;
+       sdp = sessionDescription.sdp;
+       changeSdp = updateCodec(sdp);
+       sessionDescription.sdp = changeSdp;
        
        console.log("---------------------------------");
        console.log(sessionDescription.sdp, "watcher");
@@ -105,12 +105,12 @@ socket.on("exist", function(){
   document.getElementById("error").innerHTML = "";
 });
 
-// function updateCodec(sdp){
-//   origincodec = "m=video 9 UDP/TLS/RTP/SAVPF 96 97 98 99 100 101 102 120 127 119 125 107 108 109 35 36 124 118 123";
-//   codechange = "m=video 9 UDP/TLS/RTP/SAVPF 102 96 97 98 99 100 101 120 127 119 125 107 108 109 35 36 124 118 123";
-//   sdp.replace(origincodec, codecchage);
-//   return sdp;
-// }
+function updateCodec(sdp){
+  origincodec = "m=video 9 UDP/TLS/RTP/SAVPF 96 97 125 107 124 118 123";
+  codechange = "m=video 9 UDP/TLS/RTP/SAVPF 125 96 97 107 124 118 123";
+  changed = sdp.replace(origincodec, codecchage);
+  return changed;
+}
   
 
   
