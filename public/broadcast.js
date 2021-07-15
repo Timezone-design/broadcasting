@@ -59,7 +59,7 @@ socket.on("newViewer", function (viewer) {
       // sdp = sessionDescription.sdp;
       // changeSdp = updateCodec(sdp);
       // sessionDescription.sdp = changeSdp;
-      if(typeOf(sessionDescription.sdp) == "string"){
+      if(typeof(sessionDescription.sdp) == "string"){
         console.log(sessionDescription.sdp, 555555);
       } 
       rtcPeerConnections[viewer.id].setLocalDescription(sessionDescription);
