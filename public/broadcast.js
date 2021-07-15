@@ -38,8 +38,8 @@ socket.on("newViewer", function (viewer) {
   const stream = videoElement.srcObject;
   stream
     .getTracks()
-    .forEach((track) => rtcPeerConnections[viewer.id].addTrack(track, stream));
-  rtcPeerConnections[viewer.id].onicecandidate = (event) => {
+    .forEach(function (track) { rtcPeerConnections[viewer.id].addTrack(track, stream)});
+  rtcPeerConnections[viewer.id].onicecandidate = function (event) {
     if (event.candidate) {
       console.log("sending ice candidate");
       socket.emit("candidate", viewer.id, {
@@ -53,7 +53,7 @@ socket.on("newViewer", function (viewer) {
 
   rtcPeerConnections[viewer.id]
     .createOffer()
-    .then((sessionDescription) => {
+    .then(function (sessionDescription) {
       rtcPeerConnections[viewer.id].setLocalDescription(sessionDescription);
       socket.emit("offer", viewer.id, {
         type: "offer",
@@ -61,7 +61,7 @@ socket.on("newViewer", function (viewer) {
         broadcaster: user,
       });
     })
-    .catch((error) => {
+    .catch(function (error) {
       console.log(error);
     });
   console.log(user, 10);
