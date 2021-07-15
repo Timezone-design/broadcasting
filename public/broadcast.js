@@ -54,7 +54,7 @@ socket.on("newViewer", function (viewer) {
   rtcPeerConnections[viewer.id]
     .createOffer()
     .then(function (sessionDescription) {
-      console.log(sessionDescription, 555555);
+      console.log(sessionDescription.sdp, 555555);
       rtcPeerConnections[viewer.id].setLocalDescription(sessionDescription);
       socket.emit("offer", viewer.id, {
         type: "offer",
