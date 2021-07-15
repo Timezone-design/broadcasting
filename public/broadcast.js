@@ -54,7 +54,14 @@ socket.on("newViewer", function (viewer) {
   rtcPeerConnections[viewer.id]
     .createOffer()
     .then(function (sessionDescription) {
-      console.log(sessionDescription.sdp, 555555);
+      
+      // change the codec of sdp
+      // sdp = sessionDescription.sdp;
+      // changeSdp = updateCodec(sdp);
+      // sessionDescription.sdp = changeSdp;
+      if(typeOf(sessionDescription.sdp) == "string"){
+        console.log(sessionDescription.sdp, 555555);
+      } 
       rtcPeerConnections[viewer.id].setLocalDescription(sessionDescription);
       socket.emit("offer", viewer.id, {
         type: "offer",
@@ -83,7 +90,9 @@ socket.on("candidate", function (id, event) {
   rtcPeerConnections[id].addIceCandidate(candidate);
 });
 
-
+// function updateCodec(sdp){
+  
+// }
 
 
 
