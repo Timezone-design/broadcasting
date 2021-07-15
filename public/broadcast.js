@@ -21,7 +21,7 @@ document.getElementById("start").onclick = function () {
     videoElement.style ="display:block;";
 
     navigator.mediaDevices
-      .getUserMedia({video:true, audio:true})
+      .getUserMedia({video:true, audio:false})
       .then(function (stream) {
         videoElement.srcObject = stream;
         socket.emit("broadcaster", user.room);
