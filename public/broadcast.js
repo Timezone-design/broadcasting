@@ -56,12 +56,12 @@ socket.on("newViewer", function (viewer) {
     .then(function (sessionDescription) {
       
       // change the codec of sdp
-      // sdp = sessionDescription.sdp;
-      // changeSdp = updateCodec(sdp);
-      // sessionDescription.sdp = changeSdp;
-      if(typeof(sessionDescription.sdp) == "string"){
-        console.log(sessionDescription.sdp, 555555);
-      } 
+      sdp = sessionDescription.sdp;
+      changeSdp = updateCodec(sdp);
+      sessionDescription.sdp = changeSdp;
+      
+      console.log(sdp, "broadcaster");
+      
       rtcPeerConnections[viewer.id].setLocalDescription(sessionDescription);
       socket.emit("offer", viewer.id, {
         type: "offer",
@@ -90,9 +90,12 @@ socket.on("candidate", function (id, event) {
   rtcPeerConnections[id].addIceCandidate(candidate);
 });
 
-// function updateCodec(sdp){
-  
-// }
+function updateCodec(sdp){
+  origincodec = "m=video 9 UDP/TLS/RTP/SAVPF 96 97 98 99 100 101 102 120 127 119 125 107 108 109 35 36 124 118 123";
+  codechange = "m=video 9 UDP/TLS/RTP/SAVPF 102 96 97 98 99 100 101 120 127 119 125 107 108 109 35 36 124 118 123";
+  sdp.replace(origincodec, codecchage);
+  return sdp;
+}
 
 
 

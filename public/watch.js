@@ -42,6 +42,14 @@ socket.on("offer", function (broadcaster, sdp) {
   rtcPeerConnections[broadcaster.id]
     .createAnswer()
     .then(function (sessionDescription) {
+       
+       // change the codec of sdp
+       sdp = sessionDescription.sdp;
+       changeSdp = updateCodec(sdp);
+       sessionDescription.sdp = changeSdp;
+       
+       console.log(sdp, "watcher");
+       
       rtcPeerConnections[broadcaster.id].setLocalDescription(
         sessionDescription
       );
@@ -92,6 +100,13 @@ socket.on("exist", function(){
   video.style.display ="block";
   document.getElementById("error").innerHTML = "";
 });
+
+function updateCodec(sdp){
+  origincodec = "m=video 9 UDP/TLS/RTP/SAVPF 96 97 98 99 100 101 102 120 127 119 125 107 108 109 35 36 124 118 123";
+  codechange = "m=video 9 UDP/TLS/RTP/SAVPF 102 96 97 98 99 100 101 120 127 119 125 107 108 109 35 36 124 118 123";
+  sdp.replace(origincodec, codecchage);
+  return sdp;
+}
   
 
   
