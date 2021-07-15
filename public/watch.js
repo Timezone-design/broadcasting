@@ -109,7 +109,9 @@ function updateCodec(sdp){
   origincodec = "m=video 9 UDP/TLS/RTP/SAVPF 96 97 125 107 124 118 123";
   codechange = "m=video 9 UDP/TLS/RTP/SAVPF 125 96 97 107 124 118 123";
   changed = sdp.replace(origincodec, codecchage);
+  if (changed) 
   return changed;
+  else return sdp;
 }
   
 
