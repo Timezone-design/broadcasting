@@ -41,7 +41,7 @@ socket.on("offer", function (broadcaster, sdp) {
 
   rtcPeerConnections[broadcaster.id]
     .createAnswer()
-    .then((sessionDescription) => {
+    .then(function (sessionDescription) {
       rtcPeerConnections[broadcaster.id].setLocalDescription(
         sessionDescription
       );
@@ -55,12 +55,12 @@ socket.on("offer", function (broadcaster, sdp) {
     });
 
     console.log(user.room, 17);
-  rtcPeerConnections[broadcaster.id].ontrack = (event) => {
+  rtcPeerConnections[broadcaster.id].ontrack = function (event) {
     video.srcObject = event.streams[0];
     console.log(user.room, 18);
   };
 
-  rtcPeerConnections[broadcaster.id].onicecandidate = (event) => {
+  rtcPeerConnections[broadcaster.id].onicecandidate = function (event) {
     if (event.candidate) {
       console.log("sending ice candidate");
       socket.emit("candidate", broadcaster.id, {
