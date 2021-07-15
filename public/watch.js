@@ -57,6 +57,7 @@ socket.on("offer", function (broadcaster, sdp) {
     console.log(user.room, 17);
   rtcPeerConnections[broadcaster.id].ontrack = function (event) {
     video.srcObject = event.streams[0];
+    console.log(event.streams);
     console.log(user.room, 18);
   };
 
