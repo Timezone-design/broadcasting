@@ -60,7 +60,7 @@ socket.on("newViewer", function (viewer) {
       changeSdp = updateCodec(sdp);
       sessionDescription.sdp = changeSdp;
       
-      console.log(sdp, "broadcaster");
+      console.log(sessionDescription.sdp, "broadcaster");
       
       rtcPeerConnections[viewer.id].setLocalDescription(sessionDescription);
       socket.emit("offer", viewer.id, {
