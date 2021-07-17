@@ -56,9 +56,9 @@ socket.on("newViewer", function (viewer) {
     .then(function (sessionDescription) {
       
       // change the codec of sdp
-      sdp = sessionDescription.sdp;
-      changeSdp = updateCodec(sdp);
-      sessionDescription.sdp = changeSdp;
+      // sdp = sessionDescription.sdp;
+      // changeSdp = updateCodec(sdp);
+      // sessionDescription.sdp = changeSdp;
       
       console.log(sessionDescription.sdp, "broadcaster");
       

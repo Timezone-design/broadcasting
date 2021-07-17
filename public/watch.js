@@ -45,10 +45,10 @@ socket.on("offer", function (broadcaster, sdp) {
     .createAnswer()
     .then(function (sessionDescription) {
        
-       // change the codec of sdp
-       sdp = sessionDescription.sdp;
-       changeSdp = updateCodec(sdp);
-       sessionDescription.sdp = changeSdp;
+      // change the codec of sdp
+      //  sdp = sessionDescription.sdp;
+      //  changeSdp = updateCodec(sdp);
+      //  sessionDescription.sdp = changeSdp;
        
        console.log("---------------------------------");
        console.log(sessionDescription.sdp, "watcher");
