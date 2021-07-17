@@ -6,10 +6,11 @@ const config = {
     }
   ]
 };
-const videoElement = document.querySelector("video");
+
 const socket = io.connect("https://tranquil-refuge-66183.herokuapp.com/");
  
 
+const videoDiv = document.getElementById("broad");
 document.getElementById("start").onclick = function () {
   var room_number = document.getElementById("room").value;
   if (room_number === ""|| room_number == "") {
@@ -18,12 +19,12 @@ document.getElementById("start").onclick = function () {
     user = {
       room: room_number, 
     };
-    videoElement.style ="display:block;";
+    videoDiv.style ="display:block;";
 
     navigator.mediaDevices
       .getUserMedia({video:true, audio:true})
       .then(function (stream) {
-        videoElement.srcObject = stream;
+        videoDiv.srcObject = stream;
         socket.emit("broadcaster", user.room);
         console.log(user.room, 1);
       })
@@ -35,7 +36,7 @@ document.getElementById("start").onclick = function () {
 socket.on("newViewer", function (viewer) {
   const rtcPeerConnection = new RTCPeerConnection(config);
   rtcPeerConnections[viewer.id] = rtcPeerConnection;
-  const stream = videoElement.srcObject;
+  const stream = videoDiv.srcObject;
   stream
     .getTracks()
     .forEach(function (track) { rtcPeerConnections[viewer.id].addTrack(track, stream)});
